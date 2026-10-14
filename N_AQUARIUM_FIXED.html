@@ -1,0 +1,762 @@
+ <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Nexus Aquarium | Washington</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700&display=swap" />
+<style>
+:root{
+  --bg:#041B1B;--card:#082727;--tx:#D8F3F3;--mu:#83AAAA;--ln:#164747;--ac:#4FB8B8;
+  --sea:#008080;--gold:#F28C38;--deep:#0B3D3D;
+  --hd:"Fraunces",Georgia,serif;
+  --bd:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 var(--bd);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+h1,h2,h3{font-family:var(--hd);line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.w{max-width:1100px;margin:0 auto;padding:0 22px}
+
+/* NAV */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:linear-gradient(90deg,#0B3D3D,#005757)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:700 21px var(--hd)}
+.brand svg{width:40px;height:40px}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;align-items:center}
+nav a[data-go]{color:#D6F0F0;text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;border-radius:999px;transition:.2s}
+nav a[data-go]:hover{color:#fff;background:#0F5555}
+nav a.act{background:var(--sea);color:#fff}
+nav a.bk{background:var(--gold);color:#3D1F00}
+nav a.bk:hover{background:#F9A65A;color:#3D1F00}
+#mn{display:none;background:none;border:2px solid #5AA5A5;color:#fff;border-radius:8px;padding:6px 12px;font:700 15px var(--bd)}
+
+/* PAGES */
+.page{display:none;padding:56px 0 72px}
+.page.on{display:block;animation:pg .5s ease}
+#home{padding-top:0}
+@keyframes pg{from{opacity:0;transform:translateY(14px)}}
+h2{font-size:clamp(30px,4.6vw,44px);color:var(--ac);margin-bottom:10px}
+h3{font-size:22px}
+.lead{color:var(--mu);max-width:62ch;margin:0 0 30px;font-size:18px}
+
+/* HERO + VIDEO (fixed: isolation makes the video visible above the page background) */
+.hero{position:relative;isolation:isolate;height:calc(100vh - 64px);min-height:480px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;background:#021F1F}
+.aquarium-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.video-overlay{position:absolute;inset:0;background:rgba(0,20,35,.35);z-index:1}
+.hero .in{position:relative;z-index:2;width:100%}
+.hero .logo{width:120px;height:120px;animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.hero h1{font-size:clamp(42px,8vw,78px);margin:14px 0 8px;text-shadow:0 2px 18px rgba(0,20,35,.6)}
+.hero p{font-size:clamp(18px,2.4vw,22px);color:#DDF3F3;max-width:36ch;margin:0 auto 28px}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:60px;z-index:3}
+
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font:700 16px var(--bd);text-decoration:none;border:0;cursor:pointer;margin:4px;transition:.2s}
+.btn.g{background:linear-gradient(135deg,#F9A65A,#F28C38);color:#3D1F00}
+.btn.o{border:2px solid #B2E6E6;color:#fff;background:none}
+.btn.s{background:linear-gradient(135deg,#1A9C9C,#006B6B);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+
+/* CARDS / GRIDS */
+.mos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:-50px;position:relative;z-index:3}
+.ph{margin:0;position:relative;border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--ln);height:250px;transition:.25s}
+.ph:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .em{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:repeating-linear-gradient(135deg,var(--card),var(--card) 12px,color-mix(in srgb,var(--sea) 8%,var(--card)) 12px,color-mix(in srgb,var(--sea) 8%,var(--card)) 24px);color:var(--mu);font-size:14px;text-align:center;padding:8px}
+.ph .em b{color:var(--ac);font-size:16px}
+.ph figcaption{position:absolute;left:0;bottom:0;right:0;padding:18px 12px 8px;background:linear-gradient(transparent,rgba(1,20,20,.85));color:#fff;font-weight:700;font-size:15px;pointer-events:none}
+.ph .em ~ figcaption{display:none}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.box{border:1px solid var(--ln);border-radius:16px;padding:22px;background:linear-gradient(150deg,var(--card),color-mix(in srgb,var(--sea) 9%,var(--card)))}
+.box h3{color:var(--ac);margin-bottom:6px}
+.box p{margin:0;color:var(--mu)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.chip{border:2px solid var(--sea);background:none;color:var(--ac);border-radius:999px;padding:6px 16px;font:700 15px var(--bd);cursor:pointer}
+.chip.on{background:var(--sea);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th{background:linear-gradient(90deg,#008080,#006B6B);color:#fff;text-align:left;padding:12px 14px;font-weight:700}
+td{padding:11px 14px;border-top:1px solid var(--ln)}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--sea) 5%,var(--card))}
+.tag{background:color-mix(in srgb,var(--gold) 30%,transparent);border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700}
+.note{font-size:14px;color:var(--mu);margin-top:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:34px}
+.spots{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.spots p{margin:6px 0 0;font-size:14px;color:var(--mu)}
+.sub{margin:44px 0 10px;color:var(--ac)}
+
+/* FORM */
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f{display:flex;flex-direction:column}
+.f.full{grid-column:1/-1}
+label{font-weight:700;font-size:15px;margin-bottom:4px}
+input,select{font:inherit;padding:11px 12px;border:2px solid var(--ln);border-radius:10px;background:var(--card);color:var(--tx)}
+input:focus,select:focus{border-color:var(--sea);outline:none}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:#d6453d}
+.er{color:#ff7a70;font-size:13.5px;min-height:18px;font-weight:600}
+.ck{flex-direction:row;gap:10px;align-items:center}
+.ck input{width:20px;height:20px}
+.tot{background:linear-gradient(120deg,#005757,#0B3D3D);color:#fff;border-radius:14px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;grid-column:1/-1}
+.tot b{font:700 28px var(--hd);color:var(--gold)}
+.ok{text-align:center;padding:30px}
+.ok h3{color:var(--ac);font-size:28px}
+.ref{font:700 26px var(--hd);background:linear-gradient(120deg,#005757,#0B3D3D);color:var(--gold);display:inline-block;padding:8px 22px;border-radius:12px;margin:14px 0}
+.fb{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.st{color:#f2b233;letter-spacing:2px;font-size:20px}
+.fb .box p{margin:8px 0 12px;color:var(--tx)}
+.fb small{color:var(--mu)}
+.avg{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.avg b{font:700 46px var(--hd);color:var(--ac)}
+footer{background:linear-gradient(180deg,#005757,#0B3D3D);color:#B5DCDC;padding:34px 0;font-size:15px}
+footer .w{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer a{color:#D6F0F0;margin-right:16px;text-decoration:none;font-weight:600}
+footer a:hover{color:var(--gold)}
+
+@media (max-width:860px){
+  #mn{display:block}
+  nav ul{display:none;position:absolute;top:64px;left:0;right:0;background:#0B3D3D;flex-direction:column;padding:10px 22px 18px;align-items:stretch}
+  nav ul.open{display:flex}
+  nav a[data-go]{display:block}
+  .mos,.spots{grid-template-columns:1fr 1fr}
+  .info,.grid,.fb,.two,form{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lg" viewBox="0 0 64 64">
+    <circle cx="32" cy="32" r="30" fill="#008080" stroke="#F28C38" stroke-width="3" />
+    <path d="M21 41V21l22 20V21" stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+    <path d="M12 50q5-6 10 0t10 0 10 0 10 0" stroke="#F28C38" stroke-width="3" fill="none" stroke-linecap="round" />
+    <circle cx="48" cy="17" r="3" fill="#F28C38" />
+  </symbol>
+</svg>
+
+<nav>
+  <div class="w">
+    <a class="brand" href="#home" data-go="home"><svg role="img" aria-label="Nexus Aquarium logo"><use href="#lg" /></svg>Nexus Aquarium</a>
+    <button id="mn" aria-expanded="false">Menu</button>
+    <ul id="nl">
+      <li><a href="#home" data-go="home">Home</a></li>
+      <li><a href="#gallery" data-go="gallery">Gallery</a></li>
+      <li><a href="#marine" data-go="marine">Marine Life</a></li>
+      <li><a href="#visit" data-go="visit">Visit</a></li>
+      <li><a href="#events" data-go="events">Events</a></li>
+      <li><a href="#feedback" data-go="feedback">Feedback</a></li>
+      <li><a class="bk" href="#book" data-go="book">Book Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <section class="page" id="home">
+    <div class="hero">
+      <!-- Background video: file "my fish.mp4" must be in the same folder as this HTML -->
+      <video class="aquarium-video" autoplay muted loop playsinline preload="auto">
+        <source src="my fish.mp4" />
+      </video>
+      <div class="video-overlay"></div>
+
+      <div class="in w">
+        <svg class="logo" role="img" aria-label="Nexus Aquarium logo"><use href="#lg" /></svg>
+        <h1>Nexus Aquarium</h1>
+        <p>Where the ocean's newest creatures come to light.</p>
+        <a class="btn g" href="#book" data-go="book">Book tickets</a>
+        <a class="btn o" href="#marine" data-go="marine">Explore marine life</a>
+      </div>
+
+      <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 30C240 70 480 0 720 28S1200 60 1440 24V60H0Z" fill="#041B1B" />
+      </svg>
+    </div>
+
+    <div class="w">
+      <div class="mos" id="mos">
+        <figure class="ph">
+          <img src="jellyfish.jfif" alt="Jellyfish" />
+          <figcaption>Jellyfish</figcaption>
+        </figure>
+        <figure class="ph">
+          <img src="sea turtle.jfif" alt="Sea Turtle" />
+          <figcaption>Sea Turtle</figcaption>
+        </figure>
+        <figure class="ph">
+          <img src="coral reef.jfif" alt="Coral Reef" />
+          <figcaption>Coral Reef</figcaption>
+        </figure>
+        <figure class="ph">
+          <img src="octopus.jfif" alt="Octopus" />
+          <figcaption>Octopus</figcaption>
+        </figure>
+      </div>
+
+      <div class="info">
+        <div class="box"><h3>Location</h3><p>Nexus Aquarium, Washington, USA. See the Visit page for sightseeing around us.</p></div>
+        <div class="box"><h3>Opening hours</h3><p>Tue to Fri 10:00 to 18:00. Sat and Sun 09:00 to 19:00. Closed Mondays.</p></div>
+        <div class="box"><h3>Newest finds</h3><p>Discoveries by different famous scientists are listed in Marine Life.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="gallery">
+    <div class="w">
+      <h2>Gallery</h2>
+      <p class="lead">Sea creatures and views of the aquarium.</p>
+      <div class="chips" id="gc"></div>
+      <!-- Filled by JavaScript from the list "G" in the script below -->
+      <div class="grid" id="gg"></div>
+    </div>
+  </section>
+
+  <section class="page" id="marine">
+    <div class="w">
+      <h2>Marine Life</h2>
+      <p class="lead">The newest species found in this new era.</p>
+      <h3 class="sub" style="margin-top:0">Newest discovered species</h3>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Sea Creature</th><th>Species</th><th>Definition</th><th>Scientist(s)</th><th>Year</th></tr></thead>
+          <tbody id="sp"></tbody>
+        </table>
+      </div>
+      <p class="note">Species information is based on recently described marine species and their published scientific descriptions.</p>
+    </div>
+  </section>
+
+  <section class="page" id="visit">
+    <div class="w">
+      <h2>Visit Us</h2>
+      <p class="lead">Timings, location and things to see nearby.</p>
+      <div class="two">
+        <div>
+          <h3 class="sub" style="margin-top:0">Opening times</h3>
+          <div class="tw">
+            <table style="min-width:0">
+              <thead><tr><th>Day</th><th>Hours</th></tr></thead>
+              <tbody>
+                <tr><td>Monday</td><td>Closed</td></tr>
+                <tr><td>Tuesday to Friday</td><td>10:00 to 18:00</td></tr>
+                <tr><td>Saturday and Sunday</td><td>09:00 to 19:00</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Last entry one hour before closing.</p>
+        </div>
+        <div>
+          <h3 class="sub" style="margin-top:0">Location</h3>
+          <div class="box">
+            <h3>Nexus Aquarium</h3>
+            <p>Washington, USA</p>
+            <p style="margin-top:8px">Tickets: adults $18, children (3 to 12) $10, under 3 free.</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="sub">Around the aquarium</h3>
+      <div class="spots" id="sp2"></div>
+    </div>
+  </section>
+
+  <section class="page" id="events">
+    <div class="w">
+      <h2>Events</h2>
+      <p class="lead">Separate programs for adults and for children.</p>
+      <h3 class="sub" style="margin-top:0">Adult events</h3>
+      <div class="tw"><table><thead><tr><th>Event</th><th>Day</th><th>Time</th><th>Details</th><th>Price</th></tr></thead><tbody id="ea"></tbody></table></div>
+      <h3 class="sub">Children's events</h3>
+      <div class="tw"><table><thead><tr><th>Event</th><th>Day</th><th>Time</th><th>Details</th><th>Price</th></tr></thead><tbody id="ec"></tbody></table></div>
+      <p style="margin-top:24px"><a class="btn s" href="#book" data-go="book">Book your visit</a></p>
+    </div>
+  </section>
+
+  <section class="page" id="book">
+    <div class="w" style="max-width:820px">
+      <h2>Book Tickets</h2>
+      <p class="lead">Fill in your details. This is a demo, so no payment is taken.</p>
+      <div class="box" id="bx">
+        <form id="bf" novalidate>
+          <div class="f"><label for="name">Full name</label><input id="name" name="name" autocomplete="name" /><span class="er" data-e="name"></span></div>
+          <div class="f"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" /><span class="er" data-e="email"></span></div>
+          <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" /><span class="er" data-e="phone"></span></div>
+          <div class="f"><label for="date">Visit date</label><input id="date" name="date" type="date" /><span class="er" data-e="date"></span></div>
+          <div class="f"><label for="slot">Time slot</label>
+            <select id="slot" name="slot"><option value="">Choose a slot</option><option>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option></select>
+            <span class="er" data-e="slot"></span></div>
+          <div class="f"><label for="adults">Adults ($18 each)</label><input id="adults" name="adults" type="number" value="1" /><span class="er" data-e="adults"></span></div>
+          <div class="f"><label for="kids">Children ($10 each)</label><input id="kids" name="kids" type="number" value="0" /><span class="er" data-e="kids"></span></div>
+          <div class="f ck full"><input id="agree" name="agree" type="checkbox" /><label for="agree" style="margin:0">I accept the booking terms.</label></div>
+          <span class="er" data-e="agree" style="grid-column:1/-1"></span>
+          <div class="tot"><span>Total</span><b id="tt">$18</b></div>
+          <div style="grid-column:1/-1"><button class="btn s" type="submit" style="margin:0">Confirm booking</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="feedback">
+    <div class="w">
+      <h2>Visitor Feedback</h2>
+      <div class="avg">
+        <b id="av"></b>
+        <div><div class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</div><small>Average of sample reviews</small></div>
+      </div>
+      <div class="fb" id="fbg"></div>
+      <p class="note">Sample feedback from dummy visitors.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="w">
+    <div class="brand" style="font-size:19px"><svg><use href="#lg" /></svg>Nexus Aquarium, Washington</div>
+    <div>
+      <a href="#gallery" data-go="gallery">Gallery</a><a href="#marine" data-go="marine">Marine Life</a><a href="#visit" data-go="visit">Visit</a><a href="#events" data-go="events">Events</a><a href="#book" data-go="book">Book</a>
+    </div>
+    <div>By Javeria, Hira and Manahil</div>
+  </div>
+</footer>
+
+<script>
+// Nexus Aquarium - behaviour
+const $ = (s) => document.querySelector(s),
+  $$ = (s) => [...document.querySelectorAll(s)];
+
+
+   
+const G = [
+  ["Clownfish", "c", "claunfish.jpeg"],
+  ["Seahorse", "c", "Sea horse.jfif"],
+  ["Manta ray", "c", "manta ray.jpeg"],
+  ["Dolphin", "c", "dolphin.jpeg"],
+  ["Starfish", "c", "starfish.jpeg"],
+  ["Whale shark", "c", "whale shark.jpeg"],
+  ["Main tank hall", "a", "main tank hall.jpeg"],
+  ["Touch pool", "a", "touch pool.jpeg"],
+  ["Entrance", "a", "entrance.jpeg"],
+];
+
+ 
+const card = (l, src) =>
+  `<figure class="ph">${
+    src
+      ? `<img src="${encodeURI(src)}" alt="${l}" loading="lazy">`
+      : `<div class="em"><b>${l}</b>Photo coming soon</div>`
+  }<figcaption>${l}</figcaption></figure>`;
+
+// If any image fails to load, show a neat placeholder instead of a broken icon.
+document.addEventListener("error", (e) => {
+  const im = e.target;
+  if (im.tagName === "IMG" && im.closest(".ph")) {
+    const d = document.createElement("div"), b = document.createElement("b");
+    d.className = "em";
+    b.textContent = im.alt;
+    d.append(b, "Image not found");
+    im.replaceWith(d);
+  }
+}, true);
+
+function go(p) {
+  if (!$("#" + p)) p = "home";
+  $$(".page").forEach((s) => s.classList.toggle("on", s.id === p));
+  $$("nav a[data-go]").forEach((a) =>
+    a.classList.toggle("act", a.dataset.go === p && !a.classList.contains("brand")),
+  );
+  $("#nl").classList.remove("open");
+  $("#mn").setAttribute("aria-expanded", "false");
+  scrollTo(0, 0);
+}
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-go]");
+  if (a) {
+    e.preventDefault();
+    go(a.dataset.go);
+  }
+});
+$("#mn").onclick = () => {
+  const o = $("#nl").classList.toggle("open");
+  $("#mn").setAttribute("aria-expanded", o);
+};
+
+const gr = (f) =>
+  ($("#gg").innerHTML = G.filter((x) => f === "all" || x[1] === f)
+    .map((x) => card(x[0], x[2]))
+    .join(""));
+$("#gc").innerHTML = [["all", "All"], ["c", "Sea creatures"], ["a", "Aquarium"]]
+  .map(([k, l], i) => `<button class="chip${i ? "" : " on"}" data-k="${k}">${l}</button>`)
+  .join("");
+$("#gc").onclick = (e) => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  $$("#gc .chip").forEach((c) => c.classList.toggle("on", c === b));
+  gr(b.dataset.k);
+};
+gr("all");
+
+const S = [
+  ["Mystery mollusc", "Bathydevius caudactylus", "A translucent midwater sea slug with a large oral hood, finger-like tail projections and blue bioluminescence.", "Bruce Robison; Steven Haddock", "2024"],
+  ["Divine dragon glistenworm", "Chaetoderma shenloong", "A large worm-like deep-sea mollusc that lives in sediments around a methane seep in the South China Sea.", "Chong Chen; Xuan Liu; Xin Gu; Jian-Wen Qiu; Jin Sun", "2024"],
+  ["Mimic worm", "Cryptochaetosyllis imitatio", "A brightly coloured marine worm that lives on soft corals and resembles a nudibranch sea slug.", "Naoto Jimi; T. A. Britayev; Daniel Martin and collaborators", "2024"],
+  ["Paired-lure anglerfish", "Gigantactis paresca", "A deep-sea anglerfish distinguished by two bait-like lure structures, including a second non-glowing lure.", "David A. Rickle", "2024"],
+  ["Dragon nematode", "Dracograllus miguelitus", "A tiny nematode found on hard substrate at an inactive hydrothermal vent on the Mid-Atlantic Ridge.", "William Johnson da Silva; Daniel Zeppilli; Vincent Foulon; Pierre-A. Dessandier; Matthieu Matabos; Jozée Sarrazin", "2025"],
+  ["Sponge ambusher worm", "Eunice siphoninsidiator", "A deep-sea polychaete that hides inside glass sponges and ambushes small animals near its host.", "Yadong Zhou; R. Zhang; C. Shen; Q. Mao; M. Zhang; D. Zhang", "2025"],
+  ["Nodule crown coral", "Deltocyathus zoemetallicus", "A hard coral living attached to polymetallic nodules more than 4,000 metres deep in the eastern Pacific.", "Guadalupe Bribiesca-Contreras; Nadia Santodomingo; Marcelo V. Kitahara and collaborators", "2025"],
+  ["Atlantic manta ray", "Mobula yarae", "A newly recognised manta ray species from the Atlantic, distinguished through morphology, colour, teeth and DNA evidence.", "Naya Bucair; Silvia Hinojosa-Alvarez; Andrea D. Marshall and collaborators", "2025"],
+  ["Poseidon's squid", "Mobydickia poseidonii", "A newly described squid that required the creation of a new genus and a new squid family after study of a museum specimen.", "Sam Arnold; Fernando Ángel Fernández-Álvarez", "2025"],
+  ["Darth Vader supergiant isopod", "Bathynomus vaderi", "A giant deep-sea isopod from Vietnam whose head shape inspired its Darth Vader name.", "Peter K. L. Ng; Conni M. Sidabalok; Thanh Son Nguyen", "2025"],
+];
+$("#sp").innerHTML = S.map(
+  (r) => `<tr><td><b>${r[0]}</b></td><td><span class="tag">${r[1]}</span></td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`,
+).join("");
+
+// "Around the aquarium" spots (add an image file name as the 3rd value when you have photos)
+$("#sp2").innerHTML = [
+  ["Waterfront promenade", "An easy walk beside the water.", "lake.jpeg"],
+  ["Aquarium entrance plaza", "Our front doors and gardens.", "entrance.jpeg"],
+  ["Harbour viewpoint", "Wide views over the water.", "harbor.jpeg"],
+  ["Coastal trail", "A gentle path with sea air.", "coastel trail.jpeg"],
+]
+  .map((x) => `<div>${card(x[0], x[2])}<p>${x[1]}</p></div>`)
+  .join("");
+
+const ev = (a) =>
+  a.map((r) => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");
+$("#ea").innerHTML = ev([
+  ["Marine Science Evening", "Wednesday", "18:30 to 20:00", "Talks from the team on new discoveries.", "$15"],
+  ["Night Tank Tour", "Friday", "19:00 to 21:00", "After-hours walk through the main tanks.", "$22"],
+  ["Sunset Photography Walk", "Saturday", "17:00 to 18:30", "Photograph the aquarium and waterfront.", "$20"],
+  ["Coffee and Corals", "Sunday", "09:00 to 10:30", "Relaxed morning talk about reefs.", "$12"],
+]);
+$("#ec").innerHTML = ev([
+  ["Touch Pool Adventure", "Wednesday", "15:30 to 16:30", "Gentle hands-on session. Ages 5 to 10.", "$8"],
+  ["Sea Craft Workshop", "Friday", "16:00 to 17:00", "Make ocean art to take home. Ages 6 to 12.", "$8"],
+  ["Little Explorers Storytime", "Saturday", "10:30 to 11:30", "Sea stories and songs. Ages 3 to 6.", "Free"],
+  ["Junior Marine Detectives", "Sunday", "13:00 to 14:30", "Find clues and identify species. Ages 7 to 12.", "$10"],
+]);
+
+const R = [
+  ["Ayesha K.", "Bellevue", 5, "The new species table helped my class so much. We learned something new."],
+  ["Daniel M.", "Seattle", 5, "Beautiful place and friendly staff. The night tour was our favourite."],
+  ["Priya S.", "Tacoma", 4, "My kids loved the touch pool. Booking online was quick."],
+  ["Tom H.", "Olympia", 5, "A great mix of science and fun. We will be back for the next event."],
+  ["Sara L.", "Spokane", 4, "Clear signs, calm atmosphere and lovely views nearby."],
+];
+$("#fbg").innerHTML = R.map(
+  (r) => `<div class="box"><div class="st">${"&#9733;".repeat(r[2])}${"&#9734;".repeat(5 - r[2])}</div><p>${r[3]}</p><b>${r[0]}</b><br><small>${r[1]}, Washington</small></div>`,
+).join("");
+$("#av").textContent = (R.reduce((a, r) => a + r[2], 0) / R.length).toFixed(1);
+
+/* ---- Booking form ---- */
+const F = $("#bf");
+F.elements.date.min = new Date().toISOString().slice(0, 10);
+const tot = () => {
+  const a = +F.elements.adults.value || 0,
+    k = +F.elements.kids.value || 0;
+  $("#tt").textContent = "$" + (a * 18 + k * 10);
+};
+F.addEventListener("input", tot);
+const E = (n, m) => {
+  const el = F.querySelector(`[data-e="${n}"]`);
+  el.textContent = m;
+  F.elements[n].setAttribute("aria-invalid", m ? "true" : "false");
+  return !m;
+};
+const cnt = (n, lo, hi, l) => {
+  const v = F.elements[n].value.trim(),
+    x = Number(v);
+  return E(n, v === "" || !Number.isInteger(x) || x < lo || x > hi ? `${l}: enter a whole number from ${lo} to ${hi}.` : "");
+};
+F.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = (n) => F.elements[n].value.trim(),
+    t = new Date();
+  t.setHours(0, 0, 0, 0);
+  const dt = new Date(v("date") + "T00:00"),
+    ph = v("phone").replace(/\D/g, "");
+  const r = [
+    E("name", /^[A-Za-z][A-Za-z .'-]{2,}$/.test(v("name")) ? "" : "Enter your full name (letters only, at least 3 characters)."),
+    E("email", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v("email")) ? "" : "Enter a valid email such as name@example.com."),
+    E("phone", /^\+?[0-9 ()-]+$/.test(v("phone")) && ph.length >= 7 && ph.length <= 15 ? "" : "Enter a phone number with 7 to 15 digits."),
+    E("date", !v("date") ? "Choose a visit date." : dt < t ? "The date cannot be in the past." : dt.getDay() === 1 ? "We are closed on Mondays. Pick another day." : ""),
+    E("slot", v("slot") ? "" : "Select a time slot."),
+    cnt("adults", 1, 10, "Adults"),
+    cnt("kids", 0, 10, "Children"),
+    E("agree", F.elements.agree.checked ? "" : "Please accept the terms to continue."),
+  ];
+  if (!r.every(Boolean)) {
+    const b = F.querySelector('[aria-invalid="true"]');
+    b && b.focus();
+    return;
+  }
+  const ref = "NX-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+  $("#bx").innerHTML =
+    `<div class="ok"><h3>Booking confirmed</h3><p>Thank you, ${v("name").replace(/</g, "&lt;")}. A confirmation would be sent to ${v("email").replace(/</g, "&lt;")}.</p><div class="ref">${ref}</div><p>${v("date")} at ${v("slot")}<br>${v("adults")} adult(s), ${v("kids")} child(ren). Total ${$("#tt").textContent}</p><button class="btn s" onclick="location.reload()">Make another booking</button></div>`;
+});
+
+go("home");
+
+// Make sure the hero video starts (some browsers block autoplay until a retry)
+const hv = $(".aquarium-video");
+if (hv) {
+  hv.muted = true;
+  hv.play().catch(() => {});
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  if (!window.THREE) return;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); } catch (e) { return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  renderer.setClearColor(0x000000, 0);
+  const cv = renderer.domElement;
+  cv.setAttribute("aria-hidden", "true");
+  Object.assign(cv.style, { position: "fixed", left: "0", top: "0", width: "100%", height: "100%", pointerEvents: "none", zIndex: "9999" });
+  document.body.appendChild(cv);
+
+  const scene = new THREE.Scene();
+  const camZ = 12;
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.z = camZ;
+
+  const CYAN = new THREE.Color(0x7ff4ff), GOLD = new THREE.Color(0xffb25a);
+  const holoMats = [];
+  function holo(a, b, bands) {
+    const m = new THREE.ShaderMaterial({
+      transparent: true, depthWrite: false, side: THREE.DoubleSide, blending: THREE.AdditiveBlending,
+      uniforms: { uTime: { value: 0 }, uA: { value: a }, uB: { value: b }, uBands: { value: bands ? 1 : 0 }, uAlpha: { value: 1 }, uFlash: { value: 0 } },
+      vertexShader: `
+        varying vec3 vN; varying vec3 vV; varying vec3 vL; varying float vWY;
+        void main(){
+          vL = position;
+          vN = normalMatrix * normal;
+          vec4 mv = modelViewMatrix * vec4(position, 1.0);
+          vV = -mv.xyz;
+          vWY = (modelMatrix * vec4(position, 1.0)).y;
+          gl_Position = projectionMatrix * mv;
+        }`,
+      fragmentShader: `
+        uniform float uTime, uBands, uAlpha, uFlash; uniform vec3 uA, uB;
+        varying vec3 vN; varying vec3 vV; varying vec3 vL; varying float vWY;
+        void main(){
+          float f = pow(1.0 - abs(dot(normalize(vN), normalize(vV))), 2.0);
+          float scan = 0.55 + 0.45 * sin(vWY * 28.0 - uTime * 4.0);
+          float band = 0.0;
+          if (uBands > 0.5) band = step(abs(vL.x - 0.72), 0.17) + step(abs(vL.x + 0.12), 0.21);
+          vec3 c = mix(uA, uB, clamp(band, 0.0, 1.0));
+          float a = (0.2 + f * 0.9) * scan * uAlpha + uFlash * 0.4;
+          gl_FragColor = vec4(c * (0.6 + f * 1.2 + uFlash), a);
+        }`
+    });
+    holoMats.push(m);
+    return m;
+  }
+  const bodyMat = holo(CYAN, GOLD, true);
+  const finMat = holo(GOLD, GOLD, false);
+
+  const fish = new THREE.Group();
+  const yawG = new THREE.Group();
+  const rollG = new THREE.Group();
+  const body = new THREE.Group();
+  fish.add(yawG); yawG.add(rollG); rollG.add(body);
+  scene.add(fish);
+
+  const bodyGeo = new THREE.SphereGeometry(1, 48, 36);
+  bodyGeo.scale(1.6, 0.9, 0.6);
+  body.add(new THREE.Mesh(bodyGeo, bodyMat));
+
+  const wireGeo = new THREE.SphereGeometry(1.02, 22, 14);
+  wireGeo.scale(1.6, 0.9, 0.6);
+  const wireMat = new THREE.LineBasicMaterial({ color: 0x9ffcff, transparent: true, opacity: 0.22, blending: THREE.AdditiveBlending, depthWrite: false });
+  body.add(new THREE.LineSegments(new THREE.WireframeGeometry(wireGeo), wireMat));
+
+  function fin(shape, depth) {
+    const g = new THREE.ExtrudeGeometry(shape, { depth: depth, bevelEnabled: false });
+    g.translate(0, 0, -depth / 2);
+    return new THREE.Mesh(g, finMat);
+  }
+
+  const ts = new THREE.Shape();
+  ts.moveTo(0.15, 0.12);
+  ts.quadraticCurveTo(-0.5, 0.2, -1.0, 0.85);
+  ts.quadraticCurveTo(-0.75, 0, -1.0, -0.85);
+  ts.quadraticCurveTo(-0.5, -0.2, 0.15, -0.12);
+  ts.closePath();
+  const tailG = new THREE.Group();
+  tailG.position.set(-1.45, 0, 0);
+  tailG.add(fin(ts, 0.06));
+  body.add(tailG);
+
+  const ds = new THREE.Shape();
+  ds.moveTo(-0.95, 0);
+  ds.quadraticCurveTo(-0.8, 0.85, -0.1, 0.95);
+  ds.quadraticCurveTo(0.45, 1.0, 0.75, 0.05);
+  ds.closePath();
+  const dorsal = fin(ds, 0.05);
+  dorsal.position.y = 0.65;
+  body.add(dorsal);
+
+  const ps = new THREE.Shape();
+  ps.moveTo(0.1, 0);
+  ps.quadraticCurveTo(-0.1, -0.6, -0.55, -0.65);
+  ps.quadraticCurveTo(-0.55, -0.2, -0.05, 0.1);
+  ps.closePath();
+  const finR = fin(ps, 0.04), finL = fin(ps, 0.04);
+  finR.position.set(0.35, -0.25, 0.52);
+  finL.position.set(0.35, -0.25, -0.52);
+  body.add(finR, finL);
+
+  const eyeMat = new THREE.MeshBasicMaterial({ color: 0xffe2a8 });
+  [1, -1].forEach((side) => {
+    const e = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 12), eyeMat);
+    e.position.set(1.05, 0.25, side * 0.42);
+    body.add(e);
+  });
+
+  let S = 1, halfH = 1, halfW = 1;
+  function resize() {
+    const w = innerWidth, h = innerHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    halfH = Math.tan((22.5 * Math.PI) / 180) * camZ;
+    halfW = halfH * camera.aspect;
+    const px = Math.min(Math.max(w * 0.1, 80), 150);
+    S = (px * ((2 * halfH) / h)) / 3.2;
+  }
+  resize();
+  addEventListener("resize", resize);
+  fish.position.set(-halfW * 0.5, 0, 0);
+
+  const ptr = { x: 0, y: 0, seen: false, t: 0 };
+  function setPtr(e) {
+    ptr.x = (e.clientX / innerWidth) * 2 - 1;
+    ptr.y = -((e.clientY / innerHeight) * 2 - 1);
+    ptr.seen = true;
+    ptr.t = performance.now();
+  }
+  addEventListener("pointermove", setPtr, { passive: true });
+  addEventListener("pointerdown", setPtr, { passive: true });
+
+  const bGeo = new THREE.SphereGeometry(1, 12, 8);
+  const bubbles = [];
+  function bubble(spread) {
+    const m = new THREE.Mesh(bGeo, new THREE.MeshBasicMaterial({ color: 0x9ffcff, transparent: true, opacity: 0.5, depthWrite: false, blending: THREE.AdditiveBlending }));
+    m.position.copy(yawG.localToWorld(new THREE.Vector3(1.6, 0.05, 0.2)));
+    m.scale.setScalar((0.12 + Math.random() * 0.22) * S);
+    m.userData = {
+      vx: (Math.random() - 0.5) * (spread || 0.6),
+      vy: 1.2 + Math.random() * 1.6 + (spread ? Math.random() * spread * 0.5 : 0),
+      life: 0, max: 1.3 + Math.random() * 1.0, ph: Math.random() * 6.28
+    };
+    scene.add(m);
+    bubbles.push(m);
+  }
+
+  const vel = { x: 0, y: 0 };
+  const ray = new THREE.Raycaster(), v2 = new THREE.Vector2();
+  let hovering = false, cooldown = 0, spin = 0, flash = 0, bubbleTimer = 1, phase = 0, faceRight = true;
+
+  function react() {
+    if (reduce) return;
+    cooldown = 1.4;
+    spin = 1;
+    flash = 1;
+    const ax = fish.position.x - ptr.x * halfW, ay = fish.position.y - ptr.y * halfH;
+    const l = Math.hypot(ax, ay) || 1;
+    vel.x += (ax / l) * halfW * 1.1;
+    vel.y += (ay / l) * halfH * 1.1;
+    for (let i = 0; i < 14; i++) bubble(4);
+  }
+
+  const clock = new THREE.Clock();
+  let t = 0;
+  function loop() {
+    requestAnimationFrame(loop);
+    if (document.hidden) { clock.getDelta(); return; }
+    const dt = Math.min(clock.getDelta(), 0.05);
+    t += dt;
+
+    const idle = !ptr.seen || performance.now() - ptr.t > 3000;
+    const tx = idle ? Math.cos(t * 0.5) * halfW * 0.55 : ptr.x * halfW;
+    const ty = idle ? Math.sin(t * 0.8) * halfH * 0.45 : ptr.y * halfH;
+    const dx = tx - fish.position.x, dy = ty - fish.position.y;
+    const dist = Math.hypot(dx, dy) || 1e-6;
+    const hold = idle ? 0 : 2.4 * S;
+    const want = Math.min(halfW * 1.6, Math.max(0, dist - hold) * 2.4);
+    const k = 1 - Math.exp(-3.5 * dt);
+    vel.x += ((dx / dist) * want - vel.x) * k;
+    vel.y += ((dy / dist) * want - vel.y) * k;
+
+    if (ptr.seen) {
+      v2.set(ptr.x, ptr.y);
+      ray.setFromCamera(v2, camera);
+      const hit = ray.intersectObject(fish, true).length > 0;
+      if (hit && !hovering && cooldown <= 0) react();
+      hovering = hit;
+    }
+    cooldown -= dt;
+
+    fish.position.x = Math.max(-halfW + 1.3 * S, Math.min(halfW - 1.3 * S, fish.position.x + vel.x * dt));
+    fish.position.y = Math.max(-halfH + 0.9 * S, Math.min(halfH - 0.9 * S, fish.position.y + vel.y * dt));
+
+    const sp = Math.hypot(vel.x, vel.y);
+    if (sp > 0.6) faceRight = vel.x > 0;
+    else if (!idle && Math.abs(dx) > 0.5 * S) faceRight = dx > 0;
+    yawG.rotation.y += ((faceRight ? 0 : Math.PI) - yawG.rotation.y) * (1 - Math.exp(-7 * dt));
+    const pitch = Math.atan2(vel.y, Math.abs(vel.x) + 0.8) * 0.7 * Math.cos(yawG.rotation.y);
+    fish.rotation.z += (pitch - fish.rotation.z) * (1 - Math.exp(-8 * dt));
+
+    let pop = 1;
+    if (spin > 0) {
+      spin -= dt / 0.9;
+      const p = Math.min(1, 1 - Math.max(spin, 0));
+      rollG.rotation.x = p * p * (3 - 2 * p) * Math.PI * 2;
+      pop = 1 + 0.3 * Math.sin(p * Math.PI);
+      if (spin <= 0) rollG.rotation.x = 0;
+    }
+    fish.scale.setScalar(S * pop);
+
+    const spd = Math.min(sp / (halfW * 0.6), 1.5);
+    phase += dt * (5 + spd * 6 + (hovering ? 6 : 0));
+    const wag = Math.sin(phase);
+    tailG.rotation.y = wag * (0.35 + spd * 0.25);
+    body.rotation.y = -Math.sin(phase - 0.6) * 0.08 * (0.5 + spd);
+    body.position.y = Math.sin(t * 2) * 0.04;
+    const flap = Math.sin(phase * 0.6) * 0.25;
+    finR.rotation.x = -(0.55 + flap);
+    finL.rotation.x = 0.55 + flap;
+
+    flash = Math.max(0, flash - dt * 1.8);
+    const flick = reduce ? 1 : 0.88 + 0.12 * Math.sin(t * 37) * Math.sin(t * 5.3);
+    for (const m of holoMats) {
+      m.uniforms.uTime.value = t;
+      m.uniforms.uAlpha.value = flick;
+      m.uniforms.uFlash.value = flash;
+    }
+
+    bubbleTimer -= dt;
+    if (bubbleTimer <= 0 && !reduce) { bubble(); bubbleTimer = 0.9 + Math.random() * 1.6; }
+    for (let i = bubbles.length - 1; i >= 0; i--) {
+      const b = bubbles[i], u = b.userData;
+      u.life += dt;
+      b.position.x += (u.vx + Math.sin(t * 4 + u.ph) * 0.15) * dt;
+      b.position.y += u.vy * dt;
+      b.material.opacity = 0.5 * Math.max(0, 1 - u.life / u.max);
+      if (u.life >= u.max) { scene.remove(b); b.material.dispose(); bubbles.splice(i, 1); }
+    }
+
+    renderer.render(scene, camera);
+  }
+  loop();
+})();
+</script>
+</body>
+</html>

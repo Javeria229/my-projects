@@ -1,0 +1,36 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide and Fade</title>
+</head>
+<body>
+    <h1>JQuery</h1>
+
+    <p><b>Slide</b></p>
+    <button id="slideBtn">Click</button>
+    <div class="box" id="slideBox">Slide me!</div>
+
+    <p><b>Fade</b></p>
+    <button id="fadeBtn">Click</button>
+    <div class="box" id="fadeBox">Fade me!</div>
+
+    <script src="jquery-4.0.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#slideBtn").click(function () {
+                $("#slideBox").slideToggle();
+            });
+
+            $("#fadeBtn").click(function () {
+                $("#fadeBox").fadeToggle();
+            });
+
+        });
+    </script>
+</body>
+</html>

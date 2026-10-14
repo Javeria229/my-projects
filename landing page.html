@@ -1,0 +1,1383 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SLANDER</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #777;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 55px;
+            background-color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 10%;
+        }
+
+        .logo {
+            color: #555;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #19b89e;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #777;
+            font-size: 10px;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #18b99f;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background-color: #18b99f;
+
+            min-height: 300px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 45px 10%;
+        }
+
+        .hero-text {
+            width: 48%;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+
+        .hero-text h3 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero-text hr {
+            width: 85%;
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.6);
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            font-size: 10px;
+            line-height: 16px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .hero-buttons button {
+            background: white;
+            border: none;
+            padding: 9px 18px;
+
+            color: #555;
+            font-size: 10px;
+
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .hero-buttons a {
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
+            margin-left: 10px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .hero-form {
+            width: 360px;
+
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 5px;
+
+            padding: 20px;
+        }
+
+        .name-fields {
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-form input[type="text"],
+        .hero-form input[type="email"] {
+            width: 100%;
+            height: 28px;
+
+            border: none;
+            padding: 7px;
+
+            font-size: 9px;
+
+            margin-bottom: 10px;
+        }
+
+        .name-fields input {
+            width: 50%;
+        }
+
+        .check {
+            color: white;
+            font-size: 9px;
+
+            display: flex;
+            align-items: center;
+
+            margin: 2px 0 15px;
+        }
+
+        .check input {
+            margin-right: 6px;
+        }
+
+        .submit {
+            background: white;
+            border: none;
+
+            padding: 7px 16px;
+
+            font-size: 9px;
+            color: #555;
+
+            cursor: pointer;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            text-align: center;
+            padding: 40px 15px;
+            background: white;
+        }
+
+        .intro h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #888;
+
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 9px;
+            line-height: 15px;
+
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .blue-button {
+            margin-top: 15px;
+
+            background-color: #269dd0;
+            color: white;
+
+            border: none;
+            padding: 9px 18px;
+
+            font-size: 9px;
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            background-color: #09c1d0;
+
+            display: flex;
+            justify-content: center;
+
+            padding: 35px 8%;
+
+            color: white;
+        }
+
+        .feature {
+            width: 22%;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+
+            border: 1px solid white;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 15px;
+
+            font-size: 20px;
+        }
+
+        .feature h3 {
+            font-size: 11px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 8px;
+            line-height: 13px;
+        }
+
+
+        /* ================= SCREENSHOTS ================= */
+
+        .screenshots {
+            padding: 35px 8%;
+            text-align: center;
+            background-color: white;
+        }
+
+        .screenshots h2 {
+            font-size: 17px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .screen-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .screen-images img {
+            width: 20%;
+            height: 100px;
+            object-fit: cover;
+        }
+
+
+        /* ================= GREEN PRODUCT SECTION ================= */
+
+        .green-section {
+            background-color: #25ca70;
+
+            min-height: 280px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 40px 10%;
+            color: white;
+        }
+
+        .green-text {
+            width: 45%;
+        }
+
+        .green-text h2 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .green-text p {
+            font-size: 9px;
+            line-height: 15px;
+        }
+
+        .green-image {
+            width: 45%;
+            text-align: center;
+        }
+
+        .green-image img {
+            width: 90%;
+            max-width: 360px;
+        }
+
+
+        /* ================= PHONE SECTION ================= */
+
+        .phone-section {
+            min-height: 330px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 60px;
+
+            padding: 40px 10%;
+        }
+
+        .phone-image {
+            width: 45%;
+            text-align: center;
+        }
+
+        .phone-image img {
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .phone-text {
+            width: 45%;
+        }
+
+        .phone-text h2 {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .phone-text p {
+            font-size: 9px;
+            line-height: 15px;
+            margin-bottom: 15px;
+        }
+
+        .download {
+            color: #17b89e;
+            font-size: 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+
+        /* ================= CHROME SECTION ================= */
+
+        .chrome-section {
+            background-color: #ed6b6b;
+
+            min-height: 260px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 35px;
+
+            padding: 35px 10%;
+
+            color: white;
+        }
+
+        .chrome-image {
+            width: 50%;
+            text-align: center;
+        }
+
+        .chrome-image img {
+            width: 90%;
+            max-width: 430px;
+        }
+
+        .chrome-text {
+            width: 40%;
+        }
+
+        .chrome-text h2 {
+            font-size: 17px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .chrome-text p {
+            font-size: 9px;
+            line-height: 15px;
+        }
+
+
+        /* ================= TEAM ================= */
+
+        .team {
+            padding: 35px 9%;
+            background-color: white;
+        }
+
+        .team-title {
+            margin-bottom: 20px;
+        }
+
+        .team-title h2 {
+            display: inline;
+            color: #333;
+            font-size: 17px;
+        }
+
+        .team-title span {
+            font-size: 10px;
+            color: #999;
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .member {
+            width: 30%;
+        }
+
+        .member img {
+            width: 100%;
+            height: 145px;
+            object-fit: cover;
+        }
+
+        .member h3 {
+            color: #555;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        .member span {
+            font-size: 8px;
+            color: #aaa;
+        }
+
+        .member p {
+            font-size: 8px;
+            line-height: 13px;
+            margin-top: 6px;
+        }
+
+        .social {
+            margin-top: 8px;
+            font-size: 9px;
+            color: #777;
+        }
+
+
+        /* ================= PRICING ================= */
+
+        .pricing {
+            background-color: #849293;
+
+            padding: 40px 10%;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            color: white;
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        .pricing-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .price-box {
+            width: 22%;
+            background-color: white;
+            min-height: 190px;
+        }
+
+        .price-box h3 {
+            background-color: #f5f5f5;
+            padding: 7px;
+            font-size: 8px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 25px;
+            color: #777;
+            padding: 10px;
+        }
+
+        .price sup {
+            font-size: 10px;
+        }
+
+        .price-box p {
+            font-size: 8px;
+            padding: 3px;
+            color: #888;
+        }
+
+        .price-box button {
+            margin-top: 10px;
+
+            background-color: #1abb9e;
+            color: white;
+
+            border: none;
+            padding: 6px 12px;
+
+            font-size: 8px;
+        }
+
+
+        /* ================= CLIENTS ================= */
+
+        .clients {
+            padding: 30px 9%;
+        }
+
+        .clients h2 {
+            color: #333;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .client-logos div {
+            color: #aaa;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+
+        /* ================= SUBSCRIBE ================= */
+
+        .subscribe {
+            background-color: #344d66;
+
+            padding: 25px;
+            text-align: center;
+
+            color: white;
+        }
+
+        .subscribe p {
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        .subscribe input {
+            width: 180px;
+            height: 25px;
+
+            border: none;
+            padding: 5px;
+
+            font-size: 9px;
+        }
+
+        .subscribe button {
+            height: 25px;
+
+            background-color: #18b99f;
+            color: white;
+
+            border: none;
+
+            padding: 0 15px;
+
+            font-size: 9px;
+        }
+
+
+        /* ================= MAP ================= */
+
+        .map {
+            height: 270px;
+            background-color: #ddd;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        .map-box {
+            width: 100%;
+            height: 100%;
+
+            background-color: #e5e5e5;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #999;
+            font-size: 20px;
+        }
+
+        .map-marker {
+            position: absolute;
+
+            width: 25px;
+            height: 25px;
+
+            background-color: #19b99f;
+
+            border-radius: 50%;
+
+            border: 5px solid white;
+
+            box-shadow: 0 1px 5px #777;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background-color: #18b99f;
+            color: white;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 10%;
+        }
+
+        .contact-info {
+            font-size: 11px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social span {
+            width: 22px;
+            height: 22px;
+
+            background-color: white;
+            color: #18b99f;
+
+            border-radius: 3px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 9px;
+        }
+
+        .footer-bottom {
+            background-color: white;
+            color: #999;
+
+            text-align: center;
+
+            padding: 15px;
+
+            font-size: 8px;
+            line-height: 15px;
+        }
+
+        .footer-bottom a {
+            color: #18b99f;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media screen and (max-width: 768px) {
+
+            header {
+                padding: 0 5%;
+            }
+
+            .hero,
+            .green-section,
+            .phone-section,
+            .chrome-section {
+                flex-direction: column;
+                padding: 40px 5%;
+            }
+
+            .hero-text,
+            .green-text,
+            .green-image,
+            .phone-image,
+            .phone-text,
+            .chrome-image,
+            .chrome-text {
+                width: 90%;
+            }
+
+            .hero-form {
+                width: 90%;
+            }
+
+            .features {
+                flex-wrap: wrap;
+            }
+
+            .feature {
+                width: 50%;
+                margin-bottom: 25px;
+            }
+
+            .screen-images {
+                flex-wrap: wrap;
+            }
+
+            .screen-images img {
+                width: 40%;
+            }
+
+            .team-members {
+                flex-direction: column;
+            }
+
+            .member {
+                width: 100%;
+            }
+
+            .pricing-boxes {
+                flex-wrap: wrap;
+            }
+
+            .price-box {
+                width: 45%;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            <span>✓</span> SLANDER
+        </div>
+
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                SLANDER<br>
+                LANDING PAGE
+            </h1>
+
+            <h3>
+                Smart bootstrap landing theme
+            </h3>
+
+            <hr>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Mauris quis elit nec libero interdum suscipit sit amet a quam.
+                Maecenas commodo lorem ac turpis ornare lacinia.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button>
+                    ☛ BUY NOW
+                </button>
+
+                <a href="#">
+                    ☼ LEARN MORE
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-form">
+
+            <div class="name-fields">
+
+                <input type="text" placeholder="First name">
+
+                <input type="text" placeholder="Last name">
+
+            </div>
+
+            <input type="email" placeholder="Email Address">
+
+            <input type="text" placeholder="Phone No.">
+
+            <label class="check">
+
+                <input type="checkbox">
+
+                I've read the terms and conditions
+
+            </label>
+
+            <button class="submit">
+                SUBMIT
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <h2>
+            A Clean & Simple landing page for all type of websites
+        </h2>
+
+        <p>
+            Nullam quis elementum ligula. Sed neque neque, molestie eget
+            nulla eu, hendrerit tincidunt magna. Aliquam molestie lorem
+            sed metus ornare luctus.
+        </p>
+
+        <button class="blue-button">
+            CHECK MORE FEATURES
+        </button>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">▣</div>
+
+            <h3>Responsive Design</h3>
+
+            <p>
+                Sed at nisi. Nunc facilisis dignissim
+                sollicitudin elementum est. Nulla
+                viverra massa vitae diam.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🚀</div>
+
+            <h3>Quick Launch</h3>
+
+            <p>
+                Sed at nisi. Nunc facilisis dignissim
+                sollicitudin elementum est. Nulla
+                viverra massa vitae diam.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">&lt;/&gt;</div>
+
+            <h3>Clean Coded</h3>
+
+            <p>
+                Sed at nisi. Nunc facilisis dignissim
+                sollicitudin elementum est. Nulla
+                viverra massa vitae diam.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">♣</div>
+
+            <h3>Clients Loving</h3>
+
+            <p>
+                Sed at nisi. Nunc facilisis dignissim
+                sollicitudin elementum est. Nulla
+                viverra massa vitae diam.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREENSHOTS ================= -->
+
+    <section class="screenshots">
+
+        <h2>
+            Screenshots of the app
+        </h2>
+
+        <div class="screen-images">
+
+            <img src="images/screenshot1.jpg" alt="Screenshot">
+
+            <img src="images/screenshot2.jpg" alt="Screenshot">
+
+            <img src="images/screenshot3.jpg" alt="Screenshot">
+
+            <img src="images/screenshot4.jpg" alt="Screenshot">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAC SECTION ================= -->
+
+    <section class="green-section">
+
+        <div class="green-text">
+
+            <h2>
+                Responsive design for<br>
+                all devices
+            </h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec ac ligula non lorem dignissim posuere. Cras
+                malesuada vitae nulla et dui. In sem quam semper in
+                ligula sed, sodales a ante.
+            </p>
+
+        </div>
+
+
+        <div class="green-image">
+
+            <img src="images/mac.png" alt="Mac">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PHONE SECTION ================= -->
+
+    <section class="phone-section">
+
+        <div class="phone-image">
+
+            <img src="images/phones.png" alt="Phones">
+
+        </div>
+
+
+        <div class="phone-text">
+
+            <h2>
+                Iphone version
+            </h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Nunc placerat enim quis nisl vestibulum dignissim.
+                In gravida ligula dapibus dictum.
+                Pellentesque habitant morbi tristique senectus et netus.
+            </p>
+
+            <p>
+                Mauris ac turpis egestas. Integer quis lorem nec
+                ipsum vestibulum. Nulla facilisi.
+            </p>
+
+            <a href="#" class="download">
+                 DOWNLOAD NOW
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CHROME SECTION ================= -->
+
+    <section class="chrome-section">
+
+        <div class="chrome-image">
+
+            <img src="images/chrome.png" alt="Chrome">
+
+        </div>
+
+
+        <div class="chrome-text">
+
+            <h2>
+                Cross browser ipsum<br>
+                compatible
+            </h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Donec et facilisis lorem. Integer gravida tempus sodales.
+                Praesent et sem id ligula malesuada volutpat id ante.
+                In quam neque, semper in feugiat eget.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TEAM ================= -->
+
+    <section class="team">
+
+        <div class="team-title">
+
+            <h2>Our Team</h2>
+
+            <span>
+                Our people behind us
+            </span>
+
+        </div>
+
+
+        <div class="team-members">
+
+            <div class="member">
+
+                <img src="images/team1.jpg" alt="Team member">
+
+                <h3>
+                    John Smith
+                </h3>
+
+                <span>
+                    Designer
+                </span>
+
+                <p>
+                    Fusce orci augue, porta a sapien dignissim,
+                    laoreet gravida in nulla eget.
+                </p>
+
+                <div class="social">
+                    f &nbsp; t &nbsp; in &nbsp; ◎
+                </div>
+
+            </div>
+
+
+            <div class="member">
+
+                <img src="images/team2.jpg" alt="Team member">
+
+                <h3>
+                    Antony Doe
+                </h3>
+
+                <span>
+                    Developer
+                </span>
+
+                <p>
+                    Fusce orci augue, porta a sapien dignissim,
+                    laoreet gravida in nulla eget.
+                </p>
+
+                <div class="social">
+                    f &nbsp; t &nbsp; in &nbsp; ◎
+                </div>
+
+            </div>
+
+
+            <div class="member">
+
+                <img src="images/team3.jpg" alt="Team member">
+
+                <h3>
+                    Maria Joe
+                </h3>
+
+                <span>
+                    Head
+                </span>
+
+                <p>
+                    Fusce orci augue, porta a sapien dignissim,
+                    laoreet gravida in nulla eget.
+                </p>
+
+                <div class="social">
+                    f &nbsp; t &nbsp; in &nbsp; ◎
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRICING ================= -->
+
+    <section class="pricing">
+
+        <h2>
+            Pricing Table
+        </h2>
+
+        <div class="pricing-boxes">
+
+
+            <div class="price-box">
+
+                <h3>BASIC</h3>
+
+                <div class="price">
+                    $<sup>9</sup>99
+                </div>
+
+                <p>5 Projects</p>
+                <p>5 Gb of Storage</p>
+                <p>Up to 100 Users</p>
+                <p>10 GB Bandwidth</p>
+                <p>Security Suite</p>
+
+                <button>
+                    Sign Up Now
+                </button>
+
+            </div>
+
+
+            <div class="price-box">
+
+                <h3>STANDARD</h3>
+
+                <div class="price">
+                    $<sup>19</sup>99
+                </div>
+
+                <p>10 Projects</p>
+                <p>10 Gb of Storage</p>
+                <p>Up to 250 Users</p>
+                <p>25 GB Bandwidth</p>
+                <p>Security Suite</p>
+
+                <button>
+                    Sign Up Now
+                </button>
+
+            </div>
+
+
+            <div class="price-box">
+
+                <h3>PREMIUM</h3>
+
+                <div class="price">
+                    $<sup>29</sup>99
+                </div>
+
+                <p>Unlimited</p>
+                <p>50 Gb of Storage</p>
+                <p>Up to 1000 Users</p>
+                <p>100 GB Bandwidth</p>
+                <p>Security Suite</p>
+
+                <button>
+                    Sign Up Now
+                </button>
+
+            </div>
+
+
+            <div class="price-box">
+
+                <h3>ULTIMATE</h3>
+
+                <div class="price">
+                    $<sup>49</sup>99
+                </div>
+
+                <p>Unlimited</p>
+                <p>150 Gb of Storage</p>
+                <p>Up to 2500 Users</p>
+                <p>500 GB Bandwidth</p>
+                <p>Security Suite</p>
+
+                <button>
+                    Sign Up Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CLIENTS ================= -->
+
+    <section class="clients">
+
+        <h2>
+            Our Clients
+            <small>whose behind us</small>
+        </h2>
+
+        <div class="client-logos">
+
+            <div>ASTRA</div>
+            <div>FLOWTECH</div>
+            <div>BUILDERS</div>
+            <div>SLANDER</div>
+            <div>AI</div>
+            <div>YOUR BOOK</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SUBSCRIBE ================= -->
+
+    <section class="subscribe">
+
+        <p>
+            Like our products? Subscribe for Updates.
+        </p>
+
+        <input type="email" placeholder="Email Address">
+
+        <button>
+            JOIN NOW
+        </button>
+
+    </section>
+
+
+    <!-- ================= MAP ================= -->
+
+    <section class="map">
+
+        <div class="map-box">
+            NEW YORK
+        </div>
+
+        <div class="map-marker"></div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-top">
+
+            <div class="contact-info">
+
+                ☎ +1800 1234 5678
+                &nbsp;&nbsp;&nbsp;
+                ✉ info@website.com
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <span>f</span>
+                <span>◎</span>
+                <span>in</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+
+                <a href="#">Home</a>
+                |
+                <a href="#">About</a>
+                |
+                <a href="#">Contact</a>
+
+            </div>
+
+            <p>
+                Copyright © Slander 2013. All Rights Reserved
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
